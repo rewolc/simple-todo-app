@@ -7,7 +7,6 @@ import prettierConfig from 'eslint-config-prettier'
 import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
-  // Base JavaScript/TypeScript/React config
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: {
@@ -21,19 +20,14 @@ export default defineConfig([
       ...pluginPrettier.configs.recommended.rules,
       'prettier/prettier': 'error',
     },
-    // Add JS recommended config
-    linterOptions: {
-      configType: 'flat',
-    },
   },
 
   // TypeScript config
   ...tseslint.configs.recommended,
 
-  // React config (flat)
   pluginReact.configs.flat.recommended,
 
-  // Prettier config override (disables conflicting rules)
+  // Prettier rules override
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     rules: {

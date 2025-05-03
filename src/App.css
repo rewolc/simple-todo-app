@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   line-height: 1.4;
   color: #1f1f1f;
 }
@@ -13,22 +13,7 @@ body {
   margin: 0 auto;
   padding: 0 10px;
 }
-.form-container {
-  display: flex;
-  width: 100%;
-}
-.input-text {
-  flex: 8;
-  font-size: 14px;
-  padding: 12px 15px;
-  border: 1px solid #cecece;
-  outline: none;
-  font-weight: 400;
-  max-width: 80%;
-}
-.input-text::placeholder {
-  color: #999;
-}
+
 .input-submit {
   flex: 2;
   border: none;

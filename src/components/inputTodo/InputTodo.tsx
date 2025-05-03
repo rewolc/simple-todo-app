@@ -1,5 +1,6 @@
 import React, { ChangeEvent, SyntheticEvent, useState } from 'react'
 import s from './styles.module.css'
+import classNames from 'classnames'
 
 type TProps = {
   addTodoProps: (v: string) => void
@@ -28,7 +29,12 @@ export const InputTodo = ({ addTodoProps }: TProps) => {
         name="title"
         onChange={onChange}
       />
-      <input type="submit" className={s.inputSubmit} value="Submit" />
+      <input
+        type="submit"
+        className={classNames(s.inputSubmit, { [s.disabled]: !title })}
+        value="Submit"
+        disabled={!title}
+      />
     </form>
   )
 }

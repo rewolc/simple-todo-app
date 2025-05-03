@@ -1,9 +1,21 @@
 import { v4 as uuidv4 } from 'uuid'
 
+export enum ETodoGroups {
+  TODO = 'TODO',
+  IN_PROGRESS = 'IN_PROGRESS',
+  DONE = 'DONE',
+}
+
+export const TODO_GROUPS_NAME = {
+  [ETodoGroups.TODO]: 'ToDo',
+  [ETodoGroups.IN_PROGRESS]: 'In Progress',
+  [ETodoGroups.DONE]: 'Done',
+}
+
 export type TTodo = {
   id: string
   title: string
-  completed: boolean
+  group: ETodoGroups
 }
 
 export const TODOS: TTodo[] = [
@@ -11,18 +23,18 @@ export const TODOS: TTodo[] = [
     // id: uuid.v4(),
     id: uuidv4(),
     title: 'Setup development environment',
-    completed: true,
+    group: ETodoGroups.TODO,
   },
   {
     // id: uuid.v4(),
     id: uuidv4(),
     title: 'Develop website and add content',
-    completed: false,
+    group: ETodoGroups.IN_PROGRESS,
   },
   {
     // id: uuid.v4(),
     id: uuidv4(),
     title: 'Deploy to live server',
-    completed: false,
+    group: ETodoGroups.DONE,
   },
 ]

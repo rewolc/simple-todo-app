@@ -4,16 +4,16 @@ import { Header } from '../head/Header'
 import { InputTodo } from '../inputTodo/InputTodo'
 import { v4 as uuidv4 } from 'uuid'
 import s from './styles.module.css'
-import { TODOS, TTodo } from './constants'
+import { ETodoGroups, TODOS, TTodo } from './constants'
 
 export const TodoContainer = () => {
   const [todos, setTodos] = useState<TTodo[]>(TODOS)
 
-  const handleChange = (id: TTodo['id']) => {
+  const handleChange = (changedTodo: TTodo) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed
+        if (todo.id === changedTodo.id) {
+          todo.group = changedTodo.group
         }
         return todo
       })
@@ -33,7 +33,7 @@ export const TodoContainer = () => {
       // id: uuid.v4(),
       id: uuidv4(),
       title: title,
-      completed: false,
+      group: ETodoGroups.TODO,
     }
 
     setTodos((prevTodos) => [...prevTodos, newTodo])

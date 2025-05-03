@@ -4,3 +4,25 @@
   opacity: 0.4;
   text-decoration: line-through;
 }
+
+.todoItem {
+  list-style-type: none;
+  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  gap: 10px;
+}
+.todoItem select {
+  margin-right: 15px;
+}
+.todoItem button {
+  background: #d35e0f;
+  color: #fff;
+  border: 1px solid #d35e0f;
+  padding: 3px 7px;
+  cursor: pointer;
+  float: right;
+  outline: none;
+}

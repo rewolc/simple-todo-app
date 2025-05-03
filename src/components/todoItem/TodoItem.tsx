@@ -27,7 +27,12 @@ export const TodoItem = ({ todo, handleDelete, handleChange }: TProps) => {
         <option value={ETodoGroups.IN_PROGRESS}>{TODO_GROUPS_NAME[ETodoGroups.IN_PROGRESS]}</option>
         <option value={ETodoGroups.DONE}>{TODO_GROUPS_NAME[ETodoGroups.DONE]}</option>
       </select>
-      <span className={classNames({ [s.completed]: group === ETodoGroups.DONE })}>{title}</span>
+      <span
+        className={classNames({ [s.completed]: group === ETodoGroups.DONE })}
+        data-group={group}
+      >
+        {title}
+      </span>
       <button onClick={() => handleDelete(id)}>Delete</button>
     </td>
   )

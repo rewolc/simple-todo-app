@@ -11,28 +11,32 @@ type TProps = {
 export const TodosList = ({ todos, handleDelete, handleChange }: TProps) => {
   return (
     <table>
-      <tr>
-        <th>{TODO_GROUPS_NAME[ETodoGroups.TODO]}</th>
-        <th>{TODO_GROUPS_NAME[ETodoGroups.IN_PROGRESS]}</th>
-        <th>{TODO_GROUPS_NAME[ETodoGroups.DONE]}</th>
-      </tr>
-      {todos.map((todo) => {
-        return (
-          <tr key={todo.id}>
-            {todo.group === ETodoGroups.TODO && (
-              <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
-            )}
-            <td></td>
-            {todo.group === ETodoGroups.IN_PROGRESS && (
-              <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
-            )}
-            <td></td>
-            {todo.group === ETodoGroups.DONE && (
-              <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
-            )}
-          </tr>
-        )
-      })}
+      <thead>
+        <tr>
+          <th>{TODO_GROUPS_NAME[ETodoGroups.TODO]}</th>
+          <th>{TODO_GROUPS_NAME[ETodoGroups.IN_PROGRESS]}</th>
+          <th>{TODO_GROUPS_NAME[ETodoGroups.DONE]}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {todos.map((todo) => {
+          return (
+            <tr key={todo.id}>
+              {todo.group === ETodoGroups.TODO && (
+                <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
+              )}
+              <td></td>
+              {todo.group === ETodoGroups.IN_PROGRESS && (
+                <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
+              )}
+              <td></td>
+              {todo.group === ETodoGroups.DONE && (
+                <TodoItem todo={todo} handleChange={handleChange} handleDelete={handleDelete} />
+              )}
+            </tr>
+          )
+        })}
+      </tbody>
     </table>
   )
 }
